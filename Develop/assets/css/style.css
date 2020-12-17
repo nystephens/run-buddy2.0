@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #fce138;
+  --secondary-color:   #024e76;
+  --tertiary-color: #39a6b2;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +11,7 @@
 }
 
 body {
-  color: #39a6b2;
+  color: --tertiary-color;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -17,7 +23,7 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-color: --tertiary-color;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -26,19 +32,20 @@ header {
   background-position: center;
   background-attachment: fixed;
   background-position: 80%;
+  z-index: 9999;
 }
 
 header h1 {
   font-weight: bold;
   margin: 0;
   font-size: 36px;
-  color: #fce138;
+  color: --primary-color;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
   text-decoration: none;
-  color: #fce138;
+  color: --primary-color;
 }
 
 header nav {
@@ -61,8 +68,8 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  background: #fce138;
-  color: #024e76;
+  background: --primary-color;
+  color:   --secondary-color;
   border-radius: 15px;
   text-shadow: none;
 }
@@ -76,14 +83,14 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background: #fce138;
+  background: --primary-color;
   padding: 40px 35px;
   width: 100%;
 }
 
 footer h2 {
 
-  color: #024e76;
+  color:   --secondary-color;
   font-size: 30px;
   margin: 0;
 }
@@ -95,7 +102,7 @@ footer div {
 }
 
 footer a {
-  color: #024e76;
+  color:   --secondary-color;
 }
 /* END FOOTER STYLES */
 
@@ -130,14 +137,14 @@ section {
 .hero-cta h2 {
   font-size: 55px;
   font-style: italic;
-  color: #fce138;
+  color: --primary-color;
 }
 
 .hero-form {
-  border: 3px solid #024e76;
+  border: 3px solid   --secondary-color;
   background-color: rgba(252, 225, 56, 0.8);
   padding: 20px;
-  color: #024e76;
+  color:   --secondary-color;
   width: 40%;
   margin: 3.5%;
   border-radius: 15px;
@@ -152,11 +159,11 @@ section {
 }
 
 .form-input {
-  border: 1px solid #024e76;
+  border: 1px solid   --secondary-color;
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color:   --secondary-color;
   width: 100%;
   margin-bottom: 15px; 
   border-radius: 10px;
@@ -167,8 +174,8 @@ section {
 }
 
 .hero-form button {
-  color: #fce138;
-  background-color: #024e76;
+  color: --primary-color;
+  background-color:   --secondary-color;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -176,7 +183,68 @@ section {
 } 
 
 .hero-form button:hover {
-  background-color: #39a6b2;
+  background-color: --tertiary-color;
+}
+
+.checkbox-wrapper input, .radio-wrapper input {
+  opacity: 0;
+}
+
+.checkbox-wrapper label, .radio-wrapper label {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+}
+
+.checkbox-wrapper label::before,
+.radio-wrapper label::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid   --secondary-color;
+  position: absolute;
+  top: -4;
+  left: -30px;
+}
+
+.radio-wrapper label::before {
+  border-radius: 50%;
+}
+
+.radio-wrapper label::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background:   --secondary-color;
+  position: absolute;
+  left: -29px;
+  top: -3px;
+  background-image: radial-gradient(circle, --tertiary-color,   --secondary-color);
+}
+
+.checkbox-wrapper label::after {
+  content: "";
+  height: 6px;
+  width: 14px;
+  border-left: 2px solid   --secondary-color;
+  border-bottom: 2px solid   --secondary-color;
+  position: absolute;
+  left: -26px;
+  top: 1px;
+  transform: rotate(-58deg);
+}
+
+.checkbox-wrapper input + label::after,
+.radio-wrapper input + label::after {
+ content: none;
+}
+
+.checkbox-wrapper input:checked + label::after,
+.radio-wrapper input:checked + label::after {
+ content: "";
 }
 
 /* HERO STYLES END */
@@ -189,21 +257,21 @@ section {
   margin: 0 auto 35px auto;
   width: 50%;
   font-size: 48px;
-  color: #024e76;
+  color:   --secondary-color;
 }
 
 .primary-border {
-  border-color: #fce138;
+  border-color: --primary-color;
 }
 
 .secondary-border {
-  border-color: #39a6b2;
+  border-color: --tertiary-color;
 }
 /* SECTION TITLE STYLES END */
 
 .intro p {
   line-height: 1.7;
-  color: #39a6b2;
+  color: --tertiary-color;
   width: 80%;
   margin: 0 auto;
   font-size: 20px;
@@ -214,14 +282,14 @@ section {
 
 /* WHAT YOU DO STYLES START */
 .steps { 
-  background: #fce138;
+  background: --primary-color;
 }
 
 .step {
   margin: 50px auto;
   padding-bottom: 50px;
   width: 80%;
-  border-bottom: 1px solid #39a6b2;
+  border-bottom: 1px solid --tertiary-color;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -233,7 +301,7 @@ section {
 }
 
 .step h3 {
-  color: #024e76;
+  color:   --secondary-color;
   font-size: 46px;
   flex: 1 30%;
 }
@@ -259,14 +327,14 @@ section {
 }
 
 .step-text p {
-  color: #39a6b2;
+  color: --tertiary-color;
   font-size: 18px;
 }
 
 .step-text h4 {
   font-size: 26px;
   line-height: 1.5;
-  color: #024e76;
+  color:   --secondary-color;
 }
 /* WHAT YOU DO STYLES END */
 
@@ -281,8 +349,8 @@ section {
 
 .trainer {
   margin: 20px;
-  background: #024e76;
-  color: #fce138;
+  background:   --secondary-color;
+  color: --primary-color;
   flex: 1;
 }
 
@@ -319,14 +387,14 @@ section {
   display: grid;
   grid-template-columns: 1fr repeat(2, 4fr);
   grid-template-rows: repeat(5, 1fr) 2fr;
-  border: 2px solid #024e76;
-  color: #024e76;
+  border: 2px solid   --secondary-color;
+  color:   --secondary-color;
   font-size: 1.2rem;
 }
 
 .service-grid-item {
   padding: 15px 0;
-  border: 2px solid #024e76;
+  border: 2px solid   --secondary-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -335,7 +403,7 @@ section {
 
 /* Service styles begin */
 .services {
-  background: #fce138;
+  background: --primary-color;
 }
 
 .service-grid-wrapper {
@@ -368,11 +436,11 @@ section {
 
 /* REACH OUT STYLES START */
 .contact {
-  background: #024e76;
+  background:   --secondary-color;
 }
 
 .contact h2 {
-  color: #fce138;
+  color: --primary-color;
 }
 
 .contact-info > * {
@@ -395,7 +463,7 @@ section {
 }
 
 .contact-info h3 {
-  color: #fce138;
+  color: --primary-color;
   font-size: 32px;
 }
 
@@ -407,15 +475,15 @@ section {
 }
 
 .contact-info a {
-  color: #fce138;
+  color: --primary-color;
 }
 
 .contact-form input, .contact-form textarea {
-  border: 1px solid #024e76;
+  border: 1px solid   --secondary-color;
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color:   --secondary-color;
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
@@ -425,8 +493,8 @@ section {
 .contact-form button {
   width: 100%;
   border: none;
-  background: #fce138;
-  color: #024e76;
+  background: --primary-color;
+  color:   --secondary-color;
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
@@ -434,8 +502,8 @@ section {
 }
 
 .contact-form button:hover {
-  color: #fce138;
-  background: #39a6b2;
+  color: --primary-color;
+  background: --tertiary-color;
 }
 
 .form-input {
